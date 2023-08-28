@@ -1,6 +1,6 @@
 const queries = {
     getAllCustomers: `
-      SELECT * FROM customers;
+    SELECT c.customer_id,c.customer_name FROM customers c,invoices i WHERE c.customer_id = i.customer_id and i.due_date <= ?;
       `,
 
     getInvoiceData: `
