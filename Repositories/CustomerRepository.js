@@ -19,3 +19,23 @@ export const GetAllCustomers = async () => {
         throw error;
       }
   };
+
+  export const GetCustomerById = async (customer_id) => {
+    try {
+        return new Promise(async (resolve, reject) => { 
+          connection.query(
+            queries.getCustomerById,  [customer_id],       
+            (err, result) => {
+              if (err) {
+                reject(err);
+              } else {
+                resolve(result);
+              }
+            }
+          );
+        });
+      } catch (error) {
+        throw error;
+      }
+  };
+

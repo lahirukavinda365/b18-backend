@@ -1,5 +1,4 @@
-// import * as authService from "./../Services/AuthService.js";
-// import * as authValidation from "./../Services/ValidationService.js";
+
 import * as custmerService from "./../Services/CustomerService.js"
 
 export const GetAllCustomers = async (req, res) => {
@@ -15,4 +14,8 @@ export const GetAllCustomers = async (req, res) => {
     res.status(400).json({ error: error });
   }
 };
+
+
+
+
 

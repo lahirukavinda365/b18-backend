@@ -6,7 +6,7 @@ export const GetAllCustomers = async () => {
 
     if (result.length == 0) {
       return {
-        status: false,
+        status: true,
         message: "No any Customer",
         result: result,
       };
@@ -14,8 +14,28 @@ export const GetAllCustomers = async () => {
 
     return {
       status: true,
-      message: "Customer available",
+      message: "Customers available",
       result: result,
+    };
+  } catch (error) {
+    return { status: false, message: error.message };
+  }
+};
+
+export const GetCustomerById = async (customer_id) => {
+  try {
+    const result = await customerRepository.GetCustomerById(customer_id);
+
+    if (result.length == 0) {
+      return {
+        status: false,
+        message: "Customer not found",
+      };
+    }
+
+    return {
+      status: true,
+      message: "Customer available",
     };
   } catch (error) {
     return { status: false, message: error.message };

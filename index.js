@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import customerRouter from "./Routes/CustomerRoutes.js";
+import invoiceRouter from "./Routes/InvoiceRoutes.js"
 
 const app = express();
 const environmentalVariables = dotenv.config();
@@ -14,6 +15,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/customer", customerRouter);
+app.use("/invoices",invoiceRouter)
 
 
 
